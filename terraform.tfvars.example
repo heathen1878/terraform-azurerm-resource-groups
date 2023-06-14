@@ -1,18 +1,25 @@
 resource_groups = {
-    rg1 = {
-        name = "rg1"
-        location = "location"
-        tags = {
-            key = "value"
-            key2 = "value2"
-        }
+  rg1 = {
+    name     = "rg1"
+    location = "location"
+    tags = {
+      key  = "value"
+      key2 = "value2"
     }
-    rg2 = {
-        name = "rg2"
-        location = "location"
-        tags = {
-            key = "value"
-            key2 = "value2"
-        }
+    iam = {
+      readers = {
+        role_definition_name = "Reader"
+        principal_id         = "00000000-0000-0000-0000-000000000000"
+      }
     }
+  }
+  rg2 = {
+    name     = "rg2"
+    location = "location"
+    tags = {
+      key  = "value"
+      key2 = "value2"
+    }
+    iam = {}
+  }
 }
