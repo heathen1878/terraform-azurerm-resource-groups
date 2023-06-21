@@ -9,7 +9,7 @@ variable "resource_groups" {
       iam = optional(map(object(
         {
           role_definition_name = string
-          principal_id       = string
+          principal_id         = string
         }
       )), {})
     }
