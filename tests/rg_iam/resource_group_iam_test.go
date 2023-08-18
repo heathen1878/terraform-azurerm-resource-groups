@@ -1,19 +1,20 @@
 package test
 
 import (
-	"github.com/gruntwork.io/terratest/modules/terraform"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/gruntwork-io/terratest/modules/terraform"
+	"github.com/stretchr/testify/assert"
 )
 
-func TestResourceGroup(t *testing.T) {
-	opts := &terraform.Options {
+func TestResourceGroupIAM(t *testing.T) {
+	opts := &terraform.Options{
 		// reference the example folder
-		TerraformDir: "../examples/rg"
+		TerraformDir: ".",
 	}
 
 	// cleanup at the end of the tests
-	// defer ensures Terraform Destroy 
+	// defer ensures Terraform Destroy
 	// is ran regardless of a pass or fail
 	defer terraform.Destroy(t, opts)
 
@@ -22,10 +23,10 @@ func TestResourceGroup(t *testing.T) {
 
 	// get the resource group outputs
 	output := terraform.OutputRequired(t, opts, "resource_group")
-	
+
 	// Check we got something
 	if assert.NotNil(t, output) {
 		// check the outut equals what we passed in
-		assert.equal(t, "rg-no-iam", output["rg"].name)
+		assert.Equal(t, "rg-iam-reader", output)
 	}
 }
