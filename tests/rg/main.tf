@@ -5,8 +5,8 @@ module "resource_groups" {
   resource_group_name     = "rg-no-iam"
   resource_group_location = "uksouth"
   resource_group_iam      = {}
-  resource_group_tags     = {
-        Usage = "Terratest"
-        Test  = "No IAM"
-      }
+  resource_group_tags = {
+    Usage = "Terratest"
+    Test  = "No IAM"
+  }
 }

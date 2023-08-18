@@ -3,11 +3,15 @@ package test
 import (
 	"testing"
 
+	"github.com/gruntwork-io/terratest/modules/azure"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestResourceGroupIAM(t *testing.T) {
+
+	subscriptionID := ""
+
 	opts := &terraform.Options{
 		// reference the example folder
 		TerraformDir: ".",
@@ -22,11 +26,9 @@ func TestResourceGroupIAM(t *testing.T) {
 	terraform.InitAndApply(t, opts)
 
 	// get the resource group outputs
-	output := terraform.OutputRequired(t, opts, "resource_group")
+	output := terraform.Output(t, opts, "resource_group_name")
 
-	// Check we got something
-	if assert.NotNil(t, output) {
-		// check the outut equals what we passed in
-		assert.Equal(t, "rg-iam-reader", output)
-	}
+	exists := azure.ResourceGroupExists(t, output, subscriptionID)
+	assert.True(t, exists, "Resource Group does not exist")
+
 }

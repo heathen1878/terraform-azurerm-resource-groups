@@ -2,7 +2,7 @@ module "resource_groups" {
   for_each = local.resource_groups
 
   source  = "heathen1878/resource-groups/azurerm"
-  version = "1.0.1"
+  version = "2.0.0"
 
   resource_group_name     = each.value.name
   resource_group_location = each.value.location

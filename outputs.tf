@@ -5,5 +5,5 @@ output "resource_group_name" {
 
 output "resource_group_id" {
   description = "Resource group Id"
-  value           = azurerm_resource_group.resource_group.id
+  value       = azurerm_resource_group.resource_group.id
 }
