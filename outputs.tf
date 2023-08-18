@@ -1,4 +1,9 @@
-output "resource_group" {
-  description = "An output of resource group attributes"
-  value       = azurerm_resource_group.resource_group
+output "resource_group_name" {
+  description = "Resource group name"
+  value       = azurerm_resource_group.resource_group.name
+}
+
+output "resource_group_id" {
+  description = "Resource group Id"
+  value       = azurerm_resource_group.resource_group.id
 }
