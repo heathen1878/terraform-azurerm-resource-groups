@@ -1,5 +1,20 @@
 # Resource Group module
 
-Creates one or more resource groups with the option to pass IAM assignments, and returns the resource group attributes for other modules to consume.
+## Examples
 
-See [here](https://raw.githubusercontent.com/heathen1878/terraform-azurerm-resource-groups/main/terraform.tfvars.example) for an example input.
+- [Resource Group](./examples/rg/README.md)
+- [Resource Group with IAM](./examples/rg_iam/README.md)
+
+## v1.0.0
+
+- Manages resource groups
+
+## v2.0.0
+
+- Manages resource group IAM
+
+## v3.0.0
+
+- Changed resource naming
+- Added IAM output
+- Upgraded provider version to 3.80.0
