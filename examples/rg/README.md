@@ -1,30 +1,15 @@
-# Terraform resource group module example
+# Standalone RG module
 
-## Usage
+[Home](../../README.md)
 
-Init -> Apply
+This example is used by Terraform to validate the actual module. 
 
-```shell
-terraform init
+__NOTE__ 
 
-terraform apply --auto-approve
-```
+The provider version is intentionally not defined; this allows the tests to dynamically change the provider version as needed. For example...
 
 ```shell
-# Example output
-
-Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
-
-Outputs:
-
-resource_group_name = {
-  "rg" = {
-    "resource_group_id" = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-no-iam"
-    "resource_group_name" = "rg-no-iam"
-  }
-}
+sed -i "5aversion = \"${CURRENT_VERSION}\"" examples/rg/versions.tf
+terraform fmt rg/standalone
 ```
 
-```shell
-terraform apply -destroy --auto-approve
-```
