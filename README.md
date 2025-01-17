@@ -20,7 +20,7 @@
 module "rg" {
 
     source ="heathen1878/resource-groups/azurerm"
-    version = "1.0.0"
+    version = "4.0.0"
 
     # Two mandatory parameters
 }
