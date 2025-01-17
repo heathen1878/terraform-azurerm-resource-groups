@@ -12,11 +12,11 @@ type Options map[string]any
 
 func DefaultOptions() Options {
 	return Options{
-		"resource_group_name"     = "name"
-		"resource_group_location" = "location"
+		"resource_group_name"     = "name",
+		"resource_group_location" = "location",
 		"resource_group_tags" = {
-  			"key"  = "value"
-		}
+  			"key"  = "value",
+		},
 	}
 }
 
@@ -49,10 +49,10 @@ func GetTestConfig(t *testing.T) Options {
 	t.Helper()
 
 	return Options{
-		"resource_group_name"     = os.Getenv("RESOURCE_GROUP_NAME")
-		"resource_group_location" = os.Getenv("RESOURCE_GROUP_LOCATION")
+		"resource_group_name"     = os.Getenv("RESOURCE_GROUP_NAME"),
+		"resource_group_location" = os.Getenv("RESOURCE_GROUP_LOCATION"),
 		"resource_group_tags" = {
-  			"Terratest"  = "True"
-		}
+  			"Terratest"  = "True",
+		},
 	}
 }
