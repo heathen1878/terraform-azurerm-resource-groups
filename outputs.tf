@@ -1,13 +1,15 @@
-output "resource_group_name" {
-  description = "Resource group name"
-  value       = azurerm_resource_group.this.name
+output "id" {
+  value = azurerm_resource_group.this.id
 }
 
-output "resource_group_id" {
-  description = "Resource group Id"
-  value       = azurerm_resource_group.this.id
+output "location" {
+  value = azurerm_resource_group.this.location
 }
 
-output "IAM" {
-  value = azurerm_role_assignment.this
+output "name" {
+  value = azurerm_resource_group.this.name
+}
+
+output "tags" {
+  value = azurerm_resource_group.this.tags
 }
