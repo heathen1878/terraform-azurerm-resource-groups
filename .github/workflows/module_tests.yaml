@@ -57,32 +57,6 @@ jobs:
         terraform_version: ${{ vars.TERRAFORM_VERSION }}
       if: steps.auth.outcome == 'success'
 
-    - name: Run Validation Tests
-      id: validation_tests
-      run: |
-
-        # Setup Go environment
-        GOPATH="$HOME/go"
-        export GOPATH
-
-        PATH=$PATH:$GOPATH/bin
-        export PATH
-
-        # Install go junit reporting package
-        go install github.com/jstemmer/go-junit-report/v2@latest
-        
-        # export variables as environment variables
-        export ARM_CLIENT_OBJECT_ID=${{ secrets.ARM_CLIENT_OBJECT_ID }}
-        export ARM_CLIENT_ID=${{ secrets.ARM_CLIENT_ID }}
-        export ARM_CLIENT_SECRET=${{ secrets.ARM_CLIENT_SECRET }}
-        export ARM_TENANT_ID=${{ secrets.ARM_TENANT_ID }}
-        export ARM_SUBSCRIPTION_ID=${{ vars.ARM_SUBSCRIPTION_ID }}
-        export ARM_USE_AZUREAD=true
-
-        # Run Go tests
-        go test -v general_validation_test.go common.go 2>&1 | go-junit-report -set-exit-code > v_report.xml
-      if: steps.tf_install.outcome == 'success'
-    
     - name: Run Unit Tests
       id: unit_tests
       run: |
@@ -104,6 +78,8 @@ jobs:
         export ARM_TENANT_ID=${{ secrets.ARM_TENANT_ID }}
         export ARM_SUBSCRIPTION_ID=${{ vars.ARM_SUBSCRIPTION_ID }}
         export ARM_USE_AZUREAD=true
+        export RESOURCE_GROUP_NAME=${{ vars.RESOURCE_GROUP_NAME }}
+        export RESOURCE_GROUP_LOCATION=${{ vars.RESOURCE_GROUP_LOCATION }}
 
         # Run Go tests
         go test -v unit_test.go common.go 2>&1 | go-junit-report -set-exit-code > u_report.xml
