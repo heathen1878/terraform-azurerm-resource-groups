@@ -51,8 +51,7 @@ func TestItApplies(t *testing.T) {
 	t.Log(opts["tags"])
 
 	require.Nil(t, err)
-
 	require.Equal(t, opts["name"], resource_group["resource_group"].(map[string]any)["name"])
 	require.Equal(t, opts["location"], resource_group["resource_group"].(map[string]any)["location"])
-	//require.Equal(t, opts["tags"], resource_group["resource_group"].(map[string]any)["tags"])
+	require.Equal(t, opts["tags"], resource_group["resource_group"].(map[string]any)["tags"])
 }

@@ -2,7 +2,7 @@
 
 ## Tests
 
-[![Terratest](https://github.com/heathen1878/terraform-azurerm-iam/actions/workflows/module_tests.yaml/badge.svg)](https://github.com/heathen1878/terraform-azurerm-resource-groups/actions/workflows/module_tests.yaml)
+[![Terratest](https://github.com/heathen1878/terraform-azurerm-resource-groups/actions/workflows/module_tests.yaml/badge.svg)](https://github.com/heathen1878/terraform-azurerm-resource-groups/actions/workflows/module_tests.yaml)
 
 ## Security
 
@@ -44,5 +44,5 @@ module "rg" {
 
 - Manages resource groups within Azure; tends to be nested within other modules
 - For IAM use the IAM [module](https://github.com/heathen1878/terraform-azurerm-iam)
-- Supports AzureRM 3.74 up to AzureRM 4.15.0
+- Supports AzureRM 3.92.0 up to AzureRM 4.15.0
 
